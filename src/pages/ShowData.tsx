@@ -4,10 +4,22 @@ import { Context } from '../contexts/Context';
 
 
 const ShowData = () => {
-  const {name, age} = useContext(Context)
+  const {state, dispatch} = useContext(Context)
   return (
     <div>
-      Tela Show data de {name} idade: {age}
+      <h3>Tela Show Data</h3>
+      {state.user.name ?
+        <>
+          Meu nome é: {state.user.name} <br />
+          Minha idade: {state.user.age} anos.
+          <br />
+        </>
+        : 
+        <>Não há informações a serem exibidas </>
+        
+      }
+      
+      <br />
       <Link to="/">Voltar para Sign up</Link>
     </div>
   );
